@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: monkeyradio
+  namespace: monkeyradio
+  labels:
+    io.kompose.service: monkeyradio
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: web-80-tcp
+      port: 32760
+      protocol: TCP
+      targetPort: 80
+    - name: icecast-8092-tcp
+      port: 32762
+      protocol: TCP
+      targetPort: 8092
+    - name: nowplaying-api
+      port: 32761
+      protocol: TCP
+      targetPort: 8000
+  selector:
+    io.kompose.service: monkeyradio
+  type: LoadBalancer

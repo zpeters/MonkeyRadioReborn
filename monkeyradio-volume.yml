@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: monkey-radio-pv
+  namespace: monkeyradio
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadOnlyMany
+  nfs:
+    server: my.nfs.server
+    path: "/my/export/path"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: monkey-radio-pvc
+  namespace: monkeyradio
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 5Gi
