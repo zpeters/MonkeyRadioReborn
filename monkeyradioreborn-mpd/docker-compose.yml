@@ -1,0 +1,24 @@
+﻿version: "3.7"
+services:
+  mpd_icecast:
+    container_name: mpd_icecast
+    build: .
+    image: monkeyradioreborn-mpd
+    ports:
+      - 6600:6600
+    environment:
+      - ICECAST_NAME=Monkey Radio (Reborn)
+      - ICECAST_SERVER=icecast
+      - ICECAST_PORT=8092
+      - ICECAST_PASSWORD=MYPASSWORD
+      - ICECAST_MOUNT=/stream.mp3
+    depends_on:
+     - icecast
+  icecast:
+    image: riftbit/icecast
+    ports:
+      - 32783:8092
+    environment:
+      - ICE_RADIO_LISTEN_PORT=8092
+      - ICE_RADIO_ADMIN_PASSWORD=MYPASSWORD
+      - ICE_RADIO_SOURCE_PASSWORD=MYPASSWORD
