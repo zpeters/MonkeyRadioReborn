@@ -1,0 +1,7 @@
+﻿version: "3.7"
+services:
+  now_playing:
+    build: .
+    image: YOURREGISTRY/monkeyradioreborn-now-playing:0.2.1
+    environment:
+      - ROCKET_SECRET_KEY=YOURROCKETSECRET
