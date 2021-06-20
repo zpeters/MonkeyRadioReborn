@@ -17,3 +17,39 @@ By deploying deploying the images here to a kubernetes server, you can pretty qu
 - nowplaying-api the port you want the nowplaying-api running on - 32761 by default
 ### Volumes
 - monkey-radio-pv - this is an nfs mount for your music source.  it can be any pvc.  it gets mounted to /music and the whole thing gets turned into a playlist
+                                                                                          
+                                                                                               
+                                ┌──────────────────────────────────────────────────────────┐   
+                                │    __  ___          __              ___          ___     │   
+                                │   /  |/  /__  ___  / /_____ __ __  / _ \___ ____/ (_)__  │   
+                                │  / /|_/ / _ \/ _ \/  '_/ -_) // / / , _/ _ `/ _  / / _ \ │   
+                                │ /_/  /_/\___/_//_/_/\_\\__/\_, / /_/|_|\_,_/\_,_/_/\___/ │   
+                                │                           /___/                          │   
+                                └──────────────────────────────────────────────────────────┘   
+                                                                                               
+                                                                                               
+                                                                                               
+                                                        ┌──────────────────┐                   
+                                                        │                  │                   
+                                             ┌─────────▶│       web        │◀────────┐         
+                                             │          │                  │         │         
+                                             │          └──────────────────┘         │         
+                                             │                                       │         
+                                             │                                       │         
+                                             │                                       │         
+                                             │                                       │         
+                                             │                                       │         
+                                 ┌───────────────────────┐                           │         
+                                 │                       │                  ┌─────────────────┐
+                                 │    now-playing-api    │                  │                 │
+                                 │                       │                  │     icecast     │
+                                 └───────────────────────┘                  │                 │
+                                             ▲                              └─────────────────┘
+                                                                                     ▲         
+                                             │                                       │         
+                                                                                     │         
+                                             │           ┌────────────────┐          │         
+                                                         │                │          │         
+                                             └ ─ ─ ─ ─ ─▶│      mpd       │──────────┘         
+                                                         │                │                    
+                                                         └────────────────┘                    
