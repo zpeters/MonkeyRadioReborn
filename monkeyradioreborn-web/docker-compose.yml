@@ -1,0 +1,10 @@
+﻿version: "3.7"
+services:
+  web:
+    build: .
+    image: monkeyradioreborn-web
+    ports:
+      - 8080:80
+    environment:
+      - VUE_APP_MONKEY_STREAM= https://YOURDOMAIN/stream.mp3
+      - VUE_APP_MONKEY_NOW_PLAYING=https://YOURDOMAIN/now-playing
