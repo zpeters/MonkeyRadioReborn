@@ -5,6 +5,8 @@ This is a not very organized repo for https://monkeyradioreborn.com/
 
 By deploying deploying the images here to a kubernetes server, you can pretty quickly have a running clone of this site.  Of course, this is not limited to just "monkey radio" music, you can add your own playlist
 
+*This is NOT plug-and-play* you will need to review and edit the different files to run this.  Server ips, dns names and passwords have been removed so you will need to review all of the files to set them.  Additionally, this is focused on kubernetes so you will need to push the resulting images to a docker registry to deploy.
+
 ## Deployment Overview
 ### Containers
 - web - web frontend. written in Vue
